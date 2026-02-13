@@ -23,13 +23,7 @@ const FavoriteCardsScreen = ({ onContinue }: FavoriteCardsScreenProps) => {
   const [flippedCards, setFlippedCards] = useState<Set<number>>(new Set());
 
   const cards: CardData[] = [
-    {
-      id: 1,
-      frontImage: photo2,
-      backMessage: "Your smile lights up my entire world ✨",
-      rotation: -5,
-      color: "hsl(350 100% 94%)",
-    },
+
     {
       id: 2,
       frontImage: photo3,
