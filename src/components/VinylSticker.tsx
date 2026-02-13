@@ -1,4 +1,21 @@
-import stickersImage from "@/assets/stickers.jpg";
+import sticker0 from "@/assets/stickers/sticker0.jpg";
+import sticker1 from "@/assets/stickers/sticker1.jpg";
+import sticker2 from "@/assets/stickers/sticker2.jpg";
+import sticker3 from "@/assets/stickers/sticker3.jpg";
+import sticker4 from "@/assets/stickers/sticker4.jpg";
+import sticker5 from "@/assets/stickers/sticker5.jpg";
+import sticker6 from "@/assets/stickers/sticker6.jpg";
+import sticker7 from "@/assets/stickers/sticker7.jpg";
+import sticker8 from "@/assets/stickers/sticker8.jpg";
+import sticker9 from "@/assets/stickers/sticker9.jpg";
+import sticker10 from "@/assets/stickers/sticker10.jpg";
+import sticker11 from "@/assets/stickers/sticker11.jpg";
+import sticker12 from "@/assets/stickers/sticker12.jpg";
+import sticker13 from "@/assets/stickers/sticker13.jpg";
+import sticker14 from "@/assets/stickers/sticker14.jpg";
+import sticker15 from "@/assets/stickers/sticker15.jpg";
+import sticker16 from "@/assets/stickers/sticker16.jpg";
+import sticker17 from "@/assets/stickers/sticker17.jpg";
 
 interface VinylStickerProps {
   stickerIndex: number;
@@ -6,60 +23,41 @@ interface VinylStickerProps {
   size?: number;
 }
 
-// Grid positions for each sticker (row, col) - 6 rows, 3 cols
-const stickerPositions: { [key: number]: { row: number; col: number } } = {
-  0: { row: 0, col: 0 }, // laughing
-  1: { row: 0, col: 1 }, // angry
-  2: { row: 0, col: 2 }, // crying
-  3: { row: 1, col: 0 }, // thinking
-  4: { row: 1, col: 1 }, // blushing
-  5: { row: 1, col: 2 }, // sleepy
-  6: { row: 2, col: 0 }, // pointing
-  7: { row: 2, col: 1 }, // shocked
-  8: { row: 2, col: 2 }, // heart eyes
-  9: { row: 3, col: 0 }, // excited
-  10: { row: 3, col: 1 }, // dreaming
-  11: { row: 3, col: 2 }, // worried
-  12: { row: 4, col: 0 }, // surprised
-  13: { row: 4, col: 1 }, // shy
-  14: { row: 4, col: 2 }, // happy wave
-  15: { row: 5, col: 0 }, // dancing
-  16: { row: 5, col: 1 }, // hungry thought
-  17: { row: 5, col: 2 }, // skeptical
+// Add more sticker images here as needed
+const stickerImages: { [key: number]: string } = {
+  0: sticker0,   // laughing
+  1: sticker1,   // angry
+  2: sticker2,   // crying
+  3: sticker3,   // thinking
+  4: sticker4,   // blushing
+  5: sticker5,   // sleepy
+  6: sticker6,   // pointing
+  7: sticker7,   // shocked
+  8: sticker8,   // heart eyes
+  9: sticker9,   // excited
+  10: sticker10, // dreaming
+  11: sticker11, // worried
+  12: sticker12, // surprised
+  13: sticker13, // shy
+  14: sticker14, // happy wave
+  15: sticker15, // dancing
+  16: sticker16, // hungry thought
+  17: sticker17, // skeptical
 };
 
 const VinylSticker = ({ stickerIndex, className = "", size = 100 }: VinylStickerProps) => {
-  const position = stickerPositions[stickerIndex] || { row: 0, col: 0 };
-  
-  // Each sticker is roughly 33.33% of width and 16.67% of height
-  const clipWidth = 33.33;
-  const clipHeight = 16.67;
+  const src = stickerImages[stickerIndex] || stickerImages[0];
 
   return (
     <div
-      className={`sticker overflow-hidden ${className}`}
-      style={{
-        width: size,
-        height: size,
-      }}
+      className={`sticker ${className}`}
+      style={{ width: size, height: size }}
     >
-      <div
-        style={{
-          width: size * 3,
-          height: size * 6,
-          marginLeft: -position.col * size,
-          marginTop: -position.row * size,
-        }}
-      >
-        <img
-          src={stickersImage}
-          alt="Vinyl sticker"
-          className="w-full h-full object-cover"
-          style={{
-            objectFit: "cover",
-          }}
-        />
-      </div>
+      <img
+        src={src}
+        alt={`Vinyl sticker ${stickerIndex}`}
+        className="w-full h-full object-contain"
+      />
     </div>
   );
 };
